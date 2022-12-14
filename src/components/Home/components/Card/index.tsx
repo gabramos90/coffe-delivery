@@ -6,20 +6,25 @@ import {
   CardDescription,
 } from './styles'
 import coffeType from '../../../../assets/coffe-type.svg'
+import { ICoffe } from '../..'
 
-export function Card() {
+interface Props {
+  coffe: ICoffe
+}
+
+export function Card({ coffe }: Props) {
   return (
     <CardContainer>
       <CardDescription>
         <img src={coffeType} alt="tipo de café" />
-        <span>TRADICIONAL</span>
-        <h5>Expresso Tradicional</h5>
-        <p>O tradicional café feito com água quente e grãos moídos</p>
+        <span>{coffe.tag}</span>
+        <h5>{coffe.name}</h5>
+        <p>{coffe.description}</p>
       </CardDescription>
       <CardAddToCart>
         <div>
           <span className="dollarSign">R$</span>
-          <span className="productPrice">9,90</span>
+          <span className="productPrice">{coffe.price}</span>
         </div>
         <AddToCartAndQuantity>
           <div className="quantitySelector">

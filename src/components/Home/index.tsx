@@ -9,7 +9,27 @@ import { BoundingBox, Clock, Coffee, ShoppingCart } from 'phosphor-react'
 import headlineCoffe from '../../assets/headline-coffe.svg'
 import { Card } from './components/Card'
 
+export interface ICoffe {
+  id: string
+  tag: string
+  name: string
+  description: string
+  price: number
+}
+
+const coffes = [
+  {
+    id: 'skaska',
+    tag: 'Tradicional',
+    name: 'Café Tradicional',
+    description: 'O tradicional café feito com água quente e grãos moídos',
+    price: 990,
+  },
+]
+
 export function Home() {
+  console.log(coffes)
+
   return (
     <HomeContainer>
       <MainBannerContainer>
@@ -42,7 +62,9 @@ export function Home() {
       </MainBannerContainer>
       <ProductsContainer>
         <h4>Nossos cafés</h4>
-        <Card />
+        {coffes.map((coffe) => (
+          <Card key={coffe.id} coffe={coffe} />
+        ))}
       </ProductsContainer>
     </HomeContainer>
   )
