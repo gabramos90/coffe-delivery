@@ -69,4 +69,12 @@ export const Subheadline = styled.h3`
   }
 `
 
-export const ProductsContainer = styled.section``
+export const ProductsContainer = styled.section`
+  padding: 2rem 0;
+
+  h4 {
+    margin-bottom: 3.375rem;
+    font-size: 2rem;
+    color: ${(props) => props.theme['gray-900']};
+  }
+`

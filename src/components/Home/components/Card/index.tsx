@@ -1,27 +1,43 @@
-import { ShoppingCart } from 'phosphor-react'
-import { CardContainer } from './styles'
+import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+import {
+  AddToCartAndQuantity,
+  CardAddToCart,
+  CardContainer,
+  CardDescription,
+} from './styles'
+import coffeType from '../../../../assets/coffe-type.svg'
 
 export function Card() {
   return (
     <CardContainer>
-      <div>
-        <img src="" alt="" />
+      <CardDescription>
+        <img src={coffeType} alt="tipo de café" />
         <span>TRADICIONAL</span>
         <h5>Expresso Tradicional</h5>
         <p>O tradicional café feito com água quente e grãos moídos</p>
-      </div>
-      <div>
+      </CardDescription>
+      <CardAddToCart>
         <div>
-          <span>R$</span>
-          <span>9,90</span>
+          <span className="dollarSign">R$</span>
+          <span className="productPrice">9,90</span>
         </div>
-        <div>
-          <div>counter</div>
-          <button>
+        <AddToCartAndQuantity>
+          <div className="quantitySelector">
+            <button>
+              {' '}
+              <Minus size={18} />
+            </button>
+            <span>1</span>
+            <button>
+              {' '}
+              <Plus size={18} />
+            </button>
+          </div>
+          <button className="addToCartButton">
             <ShoppingCart size={20} weight="fill" />
           </button>
-        </div>
-      </div>
+        </AddToCartAndQuantity>
+      </CardAddToCart>
     </CardContainer>
   )
 }

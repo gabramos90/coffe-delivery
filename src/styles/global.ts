@@ -23,11 +23,11 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 1rem;
     }
 
-    h1, h5 {
+    h1, h4, h5 {
         font-family: 'Baloo 2', cursive;
     }
 
-    h2, h3, h4, span, p {
+    h2, h3, span, p {
         font-family: 'Roboto', sans-serif;
     }
 `
