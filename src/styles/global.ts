@@ -9,7 +9,6 @@ export const GlobalStyle = createGlobalStyle`
 
     :focus {
         outline: 0;
-        box-shadow: 0 0 0 2px ${(props) => props.theme['green-500']};
     }
 
     body {
@@ -22,5 +21,13 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Roboto', sans-serif; 
         font-weight: 400;
         font-size: 1rem;
+    }
+
+    h1, h5 {
+        font-family: 'Baloo 2', cursive;
+    }
+
+    h2, h3, h4, span, p {
+        font-family: 'Roboto', sans-serif;
     }
 `

@@ -20,7 +20,8 @@ export const HeaderContainer = styled.header`
       border-radius: 6px;
       padding: 0.5rem;
 
-      background-color: ${(props) => props.theme['green-500']};
+      background-color: ${(props) => props.theme['purple-100']};
+      color: ${(props) => props.theme['purple-600']};
     }
 
     a {
@@ -30,7 +31,8 @@ export const HeaderContainer = styled.header`
       border-radius: 6px;
       padding: 0.5rem;
 
-      background-color: ${(props) => props.theme['green-500']};
+      background-color: ${(props) => props.theme['yellow-100']};
+      color: ${(props) => props.theme['yellow-600']};
     }
 
     svg {
