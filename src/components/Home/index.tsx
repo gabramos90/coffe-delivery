@@ -4,31 +4,45 @@ import {
   Subheadline,
   MainBannerContainer,
   ProductsContainer,
+  CardProductContainer,
 } from './styles'
 import { BoundingBox, Clock, Coffee, ShoppingCart } from 'phosphor-react'
 import headlineCoffe from '../../assets/headline-coffe.svg'
 import { Card } from './components/Card'
+import { useEffect, useState } from 'react'
 
-export interface ICoffe {
-  id: string
-  tag: string
+export interface TagProps {
+  firstTag: string
+  secTag: string
+  thirdTag: string
+}
+
+export interface CoffeProps {
+  image: string
+  id: number
+  tags: TagProps[]
   name: string
   description: string
   price: number
 }
 
-const coffes = [
-  {
-    id: 'skaska',
-    tag: 'Tradicional',
-    name: 'Café Tradicional',
-    description: 'O tradicional café feito com água quente e grãos moídos',
-    price: 990,
-  },
-]
+/* interface CoffesProviders {
+  children: ReactNode
+} */
 
 export function Home() {
-  console.log(coffes)
+  const [coffes, setCoffes] = useState<CoffeProps[]>([])
+
+  async function getData() {
+    const response = await fetch('http://localhost:3000/coffes')
+    const data = await response.json()
+
+    setCoffes(data)
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
 
   return (
     <HomeContainer>
@@ -62,9 +76,19 @@ export function Home() {
       </MainBannerContainer>
       <ProductsContainer>
         <h4>Nossos cafés</h4>
-        {coffes.map((coffe) => (
-          <Card key={coffe.id} coffe={coffe} />
-        ))}
+        <CardProductContainer>
+          {coffes.map((coffe) => (
+            <Card
+              key={coffe.id}
+              id={coffe.id}
+              name={coffe.name}
+              tags={coffe.tags}
+              description={coffe.description}
+              image={coffe.image}
+              price={coffe.price}
+            />
+          ))}
+        </CardProductContainer>
       </ProductsContainer>
     </HomeContainer>
   )

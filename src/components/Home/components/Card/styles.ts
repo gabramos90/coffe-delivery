@@ -53,7 +53,10 @@ export const CardDescription = styled.div`
     color: ${(props) => props.theme['gray-600']};
   }
 `
-
+export const TagsPerCoffe = styled.div`
+  display: flex;
+  gap: 0.3rem;
+`
 export const CardAddToCart = styled.div`
   display: flex;
   justify-content: space-between;

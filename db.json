@@ -1,0 +1,88 @@
+{
+  "coffes": [
+    {
+      "id":1,
+      "image":"tradicional.png",
+      "tags": [
+        {
+          "firstTag": "TRADICIONAL",
+          "secTag": "GELADO",
+          "thirdTag":"ESPECIAL"
+        }
+      ],
+      "name": "Café Tradicional",
+      "description": "O tradicional café feito com água quente e grãos moídos",
+      "price": 990
+    },
+    {
+      "id":2,
+      "image":"cremoso.png",
+      "tags": [
+        {
+          "firstTag": "TRADICIONAL",
+          "secTag": "GELADO",
+          "thirdTag":"ESPECIAL"
+        }
+      ],
+      "name": "Café Tradicional",
+      "description": "O tradicional café feito com água quente e grãos moídos",
+      "price": 990
+    },
+    {
+      "id":3,
+      "image":"americano.png",
+      "tags": [
+        {
+          "firstTag": "TRADICIONAL",
+          "secTag": "GELADO",
+          "thirdTag":"ESPECIAL"
+        }
+      ],
+      "name": "Café Tradicional",
+      "description": "O tradicional café feito com água quente e grãos moídos",
+      "price": 990
+    },
+    {
+      "id":4,
+      "image":"arabe.png",
+      "tags": [
+        {
+          "firstTag": "TRADICIONAL",
+          "secTag": "GELADO",
+          "thirdTag":"ESPECIAL"
+        }
+      ],
+      "name": "Café Tradicional",
+      "description": "O tradicional café feito com água quente e grãos moídos",
+      "price": 990
+    },
+    {
+      "id":5,
+      "image":"irlandes.png",
+      "tags": [
+        {
+          "firstTag": "TRADICIONAL",
+          "secTag": "GELADO",
+          "thirdTag":"ESPECIAL"
+        }
+      ],
+      "name": "Café Tradicional",
+      "description": "O tradicional café feito com água quente e grãos moídos",
+      "price": 990
+    },
+    {
+      "id":6,
+      "image":"leite.png",
+      "tags": [
+        {
+          "firstTag": "TRADICIONAL",
+          "secTag": "GELADO",
+          "thirdTag":"ESPECIAL"
+        }
+      ],
+      "name": "Café Tradicional",
+      "description": "O tradicional café feito com água quente e grãos moídos",
+      "price": 990
+    }
+  ]
+}

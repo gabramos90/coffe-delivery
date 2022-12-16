@@ -33,6 +33,22 @@ export const HeaderContainer = styled.header`
 
       background-color: ${(props) => props.theme['yellow-100']};
       color: ${(props) => props.theme['yellow-600']};
+
+      span {
+        position: absolute;
+        top: 2.6%;
+        left: 77%;
+
+        line-height: 50%;
+
+        font-size: 0.65rem;
+        font-weight: bold;
+
+        border-radius: 50%;
+
+        background-color: ${(props) => props.theme['yellow-600']};
+        color: ${(props) => props.theme.white};
+      }
     }
 
     svg {

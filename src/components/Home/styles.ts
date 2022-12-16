@@ -78,3 +78,8 @@ export const ProductsContainer = styled.section`
     color: ${(props) => props.theme['gray-900']};
   }
 `
+export const CardProductContainer = styled.div`
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+`

@@ -4,41 +4,81 @@ import {
   CardAddToCart,
   CardContainer,
   CardDescription,
+  TagsPerCoffe,
 } from './styles'
-import coffeType from '../../../../assets/coffe-type.svg'
-import { ICoffe } from '../..'
+/* import coffeType from '../../../../assets/expresso-tradicional.svg' */
+import { useState } from 'react'
+import { TagProps } from '../..'
 
-interface Props {
-  coffe: ICoffe
+export interface CoffeProps {
+  image: string
+  id: number
+  tags: TagProps[]
+  name: string
+  description: string
+  price: number
 }
 
-export function Card({ coffe }: Props) {
+export function Card({ tags, name, description, price, image }: CoffeProps) {
+  let [quantity, setQuantity] = useState(1)
+
+  function handleIncrement() {
+    quantity++
+
+    setQuantity(quantity)
+  }
+
+  function handleDecrement() {
+    if (quantity === 0) {
+      return
+    } else {
+      quantity--
+    }
+
+    setQuantity(quantity)
+  }
+
+  function handleAddToCart() {
+    console.log(quantity)
+  }
+
+  console.log(tags)
+
   return (
-    <CardContainer>
+    <CardContainer className="card">
       <CardDescription>
-        <img src={coffeType} alt="tipo de café" />
-        <span>{coffe.tag}</span>
-        <h5>{coffe.name}</h5>
-        <p>{coffe.description}</p>
+        <img src={`/coffes/${image}`} alt="tipo de café" />
+        {tags &&
+          tags.map((tag) => {
+            return (
+              <TagsPerCoffe>
+                <span>{tag.firstTag}</span>
+                <span>{tag.secTag}</span>
+                <span>{tag.thirdTag}</span>
+              </TagsPerCoffe>
+            )
+          })}
+        <h5>{name}</h5>
+        <p>{description}</p>
       </CardDescription>
       <CardAddToCart>
         <div>
           <span className="dollarSign">R$</span>
-          <span className="productPrice">{coffe.price}</span>
+          <span className="productPrice">{price}</span>
         </div>
         <AddToCartAndQuantity>
           <div className="quantitySelector">
-            <button>
+            <button onClick={handleDecrement}>
               {' '}
               <Minus size={18} />
             </button>
-            <span>1</span>
-            <button>
+            <span>{quantity}</span>
+            <button onClick={handleIncrement}>
               {' '}
               <Plus size={18} />
             </button>
           </div>
-          <button className="addToCartButton">
+          <button onClick={handleAddToCart} className="addToCartButton">
             <ShoppingCart size={20} weight="fill" />
           </button>
         </AddToCartAndQuantity>
