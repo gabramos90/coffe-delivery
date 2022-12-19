@@ -7,7 +7,6 @@ import {
   TagsPerCoffe,
 } from './styles'
 /* import coffeType from '../../../../assets/expresso-tradicional.svg' */
-import { useState } from 'react'
 import { TagProps } from '../..'
 
 export interface CoffeProps {
@@ -19,31 +18,12 @@ export interface CoffeProps {
   price: number
 }
 
+const formatter = new Intl.NumberFormat('pt-BR', {
+  style: 'currency',
+  currency: 'BRL',
+})
+
 export function Card({ tags, name, description, price, image }: CoffeProps) {
-  let [quantity, setQuantity] = useState(1)
-
-  function handleIncrement() {
-    quantity++
-
-    setQuantity(quantity)
-  }
-
-  function handleDecrement() {
-    if (quantity === 0) {
-      return
-    } else {
-      quantity--
-    }
-
-    setQuantity(quantity)
-  }
-
-  function handleAddToCart() {
-    console.log(quantity)
-  }
-
-  console.log(tags)
-
   return (
     <CardContainer className="card">
       <CardDescription>
@@ -63,22 +43,22 @@ export function Card({ tags, name, description, price, image }: CoffeProps) {
       </CardDescription>
       <CardAddToCart>
         <div>
-          <span className="dollarSign">R$</span>
-          <span className="productPrice">{price}</span>
+          {/* <span>R$</span> */}
+          <span className="productPrice">{formatter.format(price)}</span>
         </div>
         <AddToCartAndQuantity>
           <div className="quantitySelector">
-            <button onClick={handleDecrement}>
+            <button>
               {' '}
               <Minus size={18} />
             </button>
-            <span>{quantity}</span>
-            <button onClick={handleIncrement}>
+            <span>1</span>
+            <button>
               {' '}
               <Plus size={18} />
             </button>
           </div>
-          <button onClick={handleAddToCart} className="addToCartButton">
+          <button className="addToCartButton">
             <ShoppingCart size={20} weight="fill" />
           </button>
         </AddToCartAndQuantity>
