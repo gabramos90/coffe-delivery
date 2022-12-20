@@ -1,6 +1,7 @@
 import {
   CurrencyDollarSimple,
   MapPin,
+  MapPinLine,
   Minus,
   Plus,
   Trash,
@@ -17,24 +18,28 @@ export function Checkout() {
   return (
     <CheckoutContainer>
       <AndressAndPayment>
+        <strong>Complete seu pedido</strong>
         <AdressInfo>
-          <strong>Complete seu pedido</strong>
           <div>
-            <div>
-              <p>
-                <MapPin size={24} />
-                Endereço de Entrega
-              </p>
-              <p>Informe o endereço onde deseja receber seu pedido</p>
-            </div>
+            <header>
+              <MapPinLine size={22} />
+              <div>
+                <p>Endereço de Entrega</p>
+                <p>Informe o endereço onde deseja receber seu pedido</p>
+              </div>
+            </header>
             <form action="">
-              <input type="text" placeholder="CEP" />
-              <input type="text" placeholder="Rua" />
-              <input type="text" placeholder="Número" />
-              <input type="text" placeholder="Complemento" />
-              <input type="text" placeholder="Bairro" />
-              <input type="text" placeholder="Cidade" />
-              <input type="text" placeholder="UF" />
+              <input type="text" placeholder="CEP" className="cep" />
+              <input type="text" placeholder="Rua" className="rua" />
+              <input type="text" placeholder="Número" className="numero" />
+              <input
+                type="text"
+                placeholder="Complemento"
+                className="complemento"
+              />
+              <input type="text" placeholder="Bairro" className="bairro" />
+              <input type="text" placeholder="Cidade" className="cidade" />
+              <input type="text" placeholder="UF" className="uf" />
             </form>
           </div>
         </AdressInfo>
@@ -67,46 +72,48 @@ export function Checkout() {
           </form>
         </PaymentInfo>
       </AndressAndPayment>
-      <CheckoutSummary>
+      <div>
         <strong>Cafés selecionados</strong>
-        <div>
-          <img src="" alt="" />
+        <CheckoutSummary>
           <div>
-            <p>Expresso Tradicional</p>
+            <img src="" alt="" />
             <div>
+              <p>Expresso Tradicional</p>
               <div>
+                <div>
+                  <button>
+                    <Plus />
+                  </button>
+                  <span>1</span>
+                  <button>
+                    <Minus />
+                  </button>
+                </div>
                 <button>
-                  <Plus />
-                </button>
-                <span>1</span>
-                <button>
-                  <Minus />
+                  <Trash />
+                  REMOVER
                 </button>
               </div>
-              <button>
-                <Trash />
-                REMOVER
-              </button>
             </div>
-          </div>
-          <span>R$ 9,90</span>
-        </div>
-        <div>
-          <div>
-            <span>Toral de itens</span>
-            <span>R$ 99,90</span>
+            <span>R$ 9,90</span>
           </div>
           <div>
-            <span>Entrega</span>
-            <span>R$ 99,90</span>
+            <div>
+              <span>Toral de itens</span>
+              <span>R$ 99,90</span>
+            </div>
+            <div>
+              <span>Entrega</span>
+              <span>R$ 99,90</span>
+            </div>
+            <div>
+              <strong>Total</strong>
+              <strong>R$ 99,90</strong>
+            </div>
+            <button>CONFIRMAR PEDIDO</button>
           </div>
-          <div>
-            <strong>Total</strong>
-            <strong>R$ 99,90</strong>
-          </div>
-          <button>CONFIRMAR PEDIDO</button>
-        </div>
-      </CheckoutSummary>
+        </CheckoutSummary>
+      </div>
     </CheckoutContainer>
   )
 }
