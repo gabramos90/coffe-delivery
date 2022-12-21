@@ -1,6 +1,11 @@
 import styled from 'styled-components'
 
 export const CheckoutContainer = styled.main`
+  button {
+    all: unset;
+    cursor: pointer;
+  }
+
   display: grid;
   grid-template-columns: 640px 1fr;
 
@@ -32,6 +37,13 @@ export const AdressInfo = styled.article`
 
     svg {
       color: ${(props) => props.theme['yellow-600']};
+    }
+
+    div {
+      p:last-child {
+        font-size: 0.75rem;
+        margin-top: 0.125rem;
+      }
     }
   }
 
@@ -83,10 +95,70 @@ export const AdressInfo = styled.article`
 `
 
 export const PaymentInfo = styled.article`
+  display: flex;
+  flex-direction: column;
   padding: 2.5rem;
   background-color: ${(props) => props.theme['gray-200']};
 
   border-radius: 6px;
+
+  header {
+    display: flex;
+    gap: 0.5rem;
+
+    margin-bottom: 2rem;
+
+    svg {
+      color: ${(props) => props.theme['purple-300']};
+    }
+
+    div {
+      p:last-child {
+        font-size: 0.75rem;
+        margin-top: 0.125rem;
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    gap: 0.75rem;
+    cursor: pointer;
+
+    button {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      gap: 0.75rem;
+      padding: 1rem;
+
+      border: 0;
+      border-radius: 8px;
+      background-color: ${(props) => props.theme['gray-100']};
+
+      line-height: none;
+      font-size: 0.75rem;
+      cursor: pointer;
+
+      &:checked {
+        background-color: red;
+      }
+
+      input {
+        display: none;
+      }
+
+      svg {
+        line-height: 0;
+        color: ${(props) => props.theme['purple-300']};
+      }
+
+      label {
+        cursor: pointer;
+        text-align: center;
+      }
+    }
+  }
 `
 
 export const CheckoutSummary = styled.aside`
@@ -96,4 +168,96 @@ export const CheckoutSummary = styled.aside`
   border-radius: 6px;
 
   margin-top: 1rem;
+`
+export const CoffeContainer = styled.div`
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+
+  padding: 1.5rem 0;
+
+  img {
+    width: 5rem;
+  }
+
+  border-bottom: 1px solid ${(props) => props.theme['gray-300']};
+
+  .handleButtons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    margin-top: 0.75rem;
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      padding: 0.5rem;
+
+      border-radius: 6px;
+      background-color: ${(props) => props.theme['gray-100']};
+
+      button {
+        display: flex;
+        align-items: center;
+
+        svg {
+          color: ${(props) => props.theme['purple-300']};
+        }
+      }
+
+      .trashButton {
+        font-size: 0.7rem;
+      }
+    }
+  }
+
+  .productPrice {
+    display: flex;
+    flex: 1;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    margin-bottom: 3.1rem;
+
+    font-weight: bold;
+  }
+`
+
+export const PriceAndDelivery = styled.div`
+  display: flex;
+  gap: 0.75rem;
+  flex-direction: column;
+
+  padding-top: 1.5rem;
+
+  .priceSummary {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+
+      strong {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 1.5rem;
+    padding: 0.8rem;
+    border-radius: 6px;
+
+    font-size: 0.875rem;
+
+    background-color: ${(props) => props.theme['yellow-300']};
+    color: ${(props) => props.theme.white};
+  }
 `
