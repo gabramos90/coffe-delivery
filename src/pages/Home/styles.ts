@@ -8,7 +8,6 @@ export const MainBannerContainer = styled.section`
   align-items: center;
   gap: 2rem;
 
-  padding-top: 5rem;
   padding-bottom: 5rem;
 
   background: ${() => `url(${backgroundImage}) no-repeat center`};

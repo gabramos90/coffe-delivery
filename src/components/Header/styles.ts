@@ -1,9 +1,23 @@
 import styled from 'styled-components'
 
-export const HeaderContainer = styled.header`
+export const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  background-color: ${(props) => props.theme['gray-100']};
+  position: fixed;
+  top: 0%;
+`
+
+export const PositionFixed = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  max-width: 1120px;
+
+  width: 100%;
 
   padding: 2rem;
 
