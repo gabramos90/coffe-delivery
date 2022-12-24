@@ -1,24 +1,19 @@
-import {
-  CreditCard,
-  CurrencyDollarSimple,
-  MapPinLine,
-  Minus,
-  Plus,
-  Trash,
-} from 'phosphor-react'
+import { CreditCard, CurrencyDollarSimple, MapPinLine } from 'phosphor-react'
+import { NavLink } from 'react-router-dom'
+import { useCart } from '../../hooks/useCart'
+import { CoffeCartItem } from './components/CoffeContainer'
 import {
   AdressInfo,
   AndressAndPayment,
   CheckoutContainer,
   CheckoutSummary,
-  CoffeContainer,
   PaymentInfo,
   PriceAndDelivery,
 } from './styles'
 
-import logoCoffe from '../../../public/coffes/americano.png'
-
 export function Checkout() {
+  const { cartItems } = useCart()
+
   return (
     <CheckoutContainer>
       <AndressAndPayment>
@@ -82,30 +77,9 @@ export function Checkout() {
       <div>
         <strong>Cafés selecionados</strong>
         <CheckoutSummary>
-          <CoffeContainer>
-            <img src={logoCoffe} alt="" />
-            <div>
-              <p>Expresso Tradicional</p>
-              <div className="handleButtons">
-                <div>
-                  <button>
-                    <Minus size={16} />
-                  </button>
-                  <span>1</span>
-                  <button>
-                    <Plus size={16} />
-                  </button>
-                </div>
-                <div>
-                  <button className="trashButton">
-                    <Trash size={16} />
-                    REMOVER
-                  </button>
-                </div>
-              </div>
-            </div>
-            <span className="productPrice">R$ 9,90</span>
-          </CoffeContainer>
+          {cartItems.map((item) => (
+            <CoffeCartItem key={item.id} coffe={item} />
+          ))}
           <PriceAndDelivery>
             <div className="priceSummary">
               <div>
@@ -121,7 +95,9 @@ export function Checkout() {
                 <strong>R$ 99,90</strong>
               </div>
             </div>
-            <button>CONFIRMAR PEDIDO</button>
+            <NavLink to="/finalization">
+              <button>CONFIRMAR PEDIDO</button>
+            </NavLink>
           </PriceAndDelivery>
         </CheckoutSummary>
       </div>

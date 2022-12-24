@@ -1,7 +1,7 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
 import { useState } from 'react'
 import { useCart } from '../../../../hooks/useCart'
-import { formatter } from '../../../../utils/PriceFormatter'
+import { formatMoney } from '../../../../utils/PriceFormatter'
 import {
   AddToCartAndQuantity,
   CardAddToCart,
@@ -60,7 +60,7 @@ export function Card({ coffe }: CoffeProps) {
       <CardAddToCart>
         <div>
           <span>R$</span>
-          <span className="productPrice">{formatter.format(coffe.price)}</span>
+          <span className="productPrice">{formatMoney(coffe.price)}</span>
         </div>
         <AddToCartAndQuantity>
           <div className="quantitySelector">

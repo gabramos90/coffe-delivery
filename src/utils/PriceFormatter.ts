@@ -1,3 +1,5 @@
-export const formatter = new Intl.NumberFormat('pt-BR', {
-  minimumFractionDigits: 2,
-})
+export function formatMoney(value: number) {
+  return value.toLocaleString('pt-BR', {
+    minimumFractionDigits: 2,
+  })
+}
