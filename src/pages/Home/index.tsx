@@ -9,41 +9,9 @@ import {
 import { BoundingBox, Clock, Coffee, ShoppingCart } from 'phosphor-react'
 import headlineCoffe from '../../assets/headline-coffe.svg'
 import { Card } from './components/Card'
-import { useEffect, useState } from 'react'
-
-export interface TagProps {
-  firstTag: string
-  secTag: string
-  thirdTag: string
-}
-
-export interface CoffeProps {
-  image: string
-  id: number
-  tags: TagProps[]
-  name: string
-  description: string
-  price: number
-}
-
-/* interface CoffesProviders {
-  children: ReactNode
-} */
+import { coffes } from '../../data/coffes'
 
 export function Home() {
-  const [coffes, setCoffes] = useState<CoffeProps[]>([])
-
-  async function getData() {
-    const response = await fetch('http://localhost:3000/coffes')
-    const data = await response.json()
-
-    setCoffes(data)
-  }
-
-  useEffect(() => {
-    getData()
-  }, [])
-
   return (
     <HomeContainer>
       <MainBannerContainer>
@@ -78,15 +46,7 @@ export function Home() {
         <h4>Nossos cafés</h4>
         <CardProductContainer>
           {coffes.map((coffe) => (
-            <Card
-              key={coffe.id}
-              id={coffe.id}
-              name={coffe.name}
-              tags={coffe.tags}
-              description={coffe.description}
-              image={coffe.image}
-              price={coffe.price}
-            />
+            <Card key={coffe.id} coffe={coffe} />
           ))}
         </CardProductContainer>
       </ProductsContainer>

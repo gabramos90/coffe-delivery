@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import backgroundImage from '../../assets/background.png'
 
 export const HomeContainer = styled.main``
 
@@ -9,6 +10,9 @@ export const MainBannerContainer = styled.section`
 
   padding-top: 5rem;
   padding-bottom: 5rem;
+
+  background: ${() => `url(${backgroundImage}) no-repeat center`};
+  background-size: cover;
 `
 
 export const Headline = styled.div`

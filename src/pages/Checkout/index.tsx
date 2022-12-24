@@ -104,10 +104,10 @@ export function Checkout() {
                 </div>
               </div>
             </div>
-            <span className='productPrice'>R$ 9,90</span>
+            <span className="productPrice">R$ 9,90</span>
           </CoffeContainer>
           <PriceAndDelivery>
-            <div className='priceSummary'>
+            <div className="priceSummary">
               <div>
                 <span>Total de itens</span>
                 <span>R$ 99,90</span>

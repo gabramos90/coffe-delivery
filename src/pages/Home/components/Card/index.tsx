@@ -1,4 +1,7 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+import { useState } from 'react'
+import { useCart } from '../../../../hooks/useCart'
+import { formatter } from '../../../../utils/PriceFormatter'
 import {
   AddToCartAndQuantity,
   CardAddToCart,
@@ -6,59 +9,72 @@ import {
   CardDescription,
   TagsPerCoffe,
 } from './styles'
-/* import coffeType from '../../../../assets/expresso-tradicional.svg' */
-import { TagProps } from '../..'
 
-export interface CoffeProps {
-  image: string
+export interface Coffe {
+  photo: string
   id: number
-  tags: TagProps[]
   name: string
   description: string
   price: number
+  tags: string[]
 }
 
-const formatter = new Intl.NumberFormat('pt-BR', {
-  style: 'currency',
-  currency: 'BRL',
-})
+export interface CoffeProps {
+  coffe: Coffe
+}
 
-export function Card({ tags, name, description, price, image }: CoffeProps) {
+export function Card({ coffe }: CoffeProps) {
+  const [quantity, setQuantity] = useState(1)
+  const { addCoffeToCart } = useCart()
+
+  function handleIncrement() {
+    setQuantity((state) => state + 1)
+  }
+
+  function handleDecrement() {
+    setQuantity((state) => state - 1)
+  }
+
+  function handleAddToCart() {
+    const coffeToAd = {
+      ...coffe,
+      quantity,
+    }
+    addCoffeToCart(coffeToAd)
+  }
+
   return (
     <CardContainer className="card">
       <CardDescription>
-        <img src={`/coffes/${image}`} alt="tipo de café" />
-        {tags &&
-          tags.map((tag) => {
-            return (
-              <TagsPerCoffe>
-                <span>{tag.firstTag}</span>
-                <span>{tag.secTag}</span>
-                <span>{tag.thirdTag}</span>
-              </TagsPerCoffe>
-            )
-          })}
-        <h5>{name}</h5>
-        <p>{description}</p>
+        <img src={`/coffes/${coffe.photo}`} alt="" />
+
+        <TagsPerCoffe>
+          {coffe.tags.map((tag) => (
+            <span key={`${coffe.id}${tag}`}>{tag}</span>
+          ))}
+        </TagsPerCoffe>
+
+        <h5>{coffe.name}</h5>
+        <p>{coffe.description}</p>
       </CardDescription>
       <CardAddToCart>
         <div>
-          {/* <span>R$</span> */}
-          <span className="productPrice">{formatter.format(price)}</span>
+          <span>R$</span>
+          <span className="productPrice">{formatter.format(coffe.price)}</span>
         </div>
         <AddToCartAndQuantity>
           <div className="quantitySelector">
-            <button>
+            <button disabled={quantity <= 1} onClick={handleDecrement}>
               {' '}
               <Minus size={18} />
             </button>
-            <span>1</span>
-            <button>
+            <span>{quantity}</span>
+            <button onClick={handleIncrement}>
               {' '}
               <Plus size={18} />
             </button>
-          </div>
-          <button className="addToCartButton">
+          </div>{' '}
+          <button className="addToCartButton" onClick={handleAddToCart}>
             <ShoppingCart size={20} weight="fill" />
           </button>
         </AddToCartAndQuantity>

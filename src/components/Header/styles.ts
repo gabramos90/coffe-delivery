@@ -24,7 +24,8 @@ export const HeaderContainer = styled.header`
       color: ${(props) => props.theme['purple-600']};
     }
 
-    a {
+    div {
+      position: relative;
       display: flex;
       align-items: center;
 
@@ -36,7 +37,7 @@ export const HeaderContainer = styled.header`
 
       span {
         position: absolute;
-        top: 2.6%;
+        top: -25%;
         left: 77%;
 
         line-height: 50%;
