@@ -21,7 +21,7 @@ export function CoffeCartItem({ coffe }: CoffeCardItem) {
 
   function handleCartDecrement() {
     if (coffe.quantity <= 1) {
-      return console.log('fodaase')
+      return console.log('limite')
     } else changeCartItemQuantity(coffe.id, 'decrement')
   }
 
