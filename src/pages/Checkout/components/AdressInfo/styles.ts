@@ -26,7 +26,7 @@ export const AdressInfoContainer = styled.article`
     }
   }
 
-  form {
+  div {
     input {
       height: 2.625rem;
 

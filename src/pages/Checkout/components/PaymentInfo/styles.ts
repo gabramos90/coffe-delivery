@@ -17,52 +17,50 @@ export const PaymentInfoContainer = styled.article`
     svg {
       color: ${(props) => props.theme['purple-300']};
     }
-
-    div {
-      p:last-child {
-        font-size: 0.75rem;
-        margin-top: 0.125rem;
-      }
-    }
   }
 
-  form {
+  .radio-custom {
+    visibility: hidden;
+    appearance: none;
+  }
+
+  .radio-custom:checked ~ label {
+    color: ${(props) => props.theme['purple-300']};
+    border: 1px solid ${(props) => props.theme['purple-300']};
+    background-color: ${(props) => props.theme['purple-100']};
+  }
+
+  label {
     display: flex;
-    gap: 0.75rem;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+
+    padding: 1rem 0.5rem;
+    border-radius: 8px;
+
+    font-size: 0.9rem;
+
+    background-color: ${(props) => props.theme['gray-300']};
+    border: 1px solid transparent;
+
     cursor: pointer;
+  }
 
-    button {
-      display: flex;
-      align-items: center;
-      flex: 1;
-      gap: 0.75rem;
-      padding: 1rem;
+  .input-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
 
-      border: 0;
-      border-radius: 8px;
-      background-color: ${(props) => props.theme['gray-100']};
+  .text-group-field {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+  }
 
-      line-height: none;
-      font-size: 0.75rem;
-      cursor: pointer;
-
-      &:checked {
-        background-color: red;
-      }
-
-      input {
-        display: none;
-      }
-
-      svg {
-        line-height: 0;
-        color: ${(props) => props.theme['purple-300']};
-      }
-
-      label {
-        cursor: pointer;
-        text-align: center;
-      }
-    }
+  .inner-block {
+    display: flex;
+    flex: 1;
   }
 `

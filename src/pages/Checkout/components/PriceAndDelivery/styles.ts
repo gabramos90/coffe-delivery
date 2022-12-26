@@ -22,7 +22,7 @@ export const PriceAndDeliveryContainer = styled.div`
     }
   }
 
-  a {
+  .orderButton {
     display: flex;
     justify-content: center;
 
@@ -36,5 +36,9 @@ export const PriceAndDeliveryContainer = styled.div`
     background-color: ${(props) => props.theme['yellow-300']};
     color: ${(props) => props.theme.white};
 
+    &:hover {
+      transition: background-color 0.2s;
+      box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+    }
   }
 `

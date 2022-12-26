@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom'
 import { useCart } from '../../../../hooks/useCart'
 import { formatMoney } from '../../../../utils/PriceFormatter'
 import { PriceAndDeliveryContainer } from './styles'
@@ -13,7 +12,6 @@ export function PriceAndDelivery() {
   const formattedItemsTotal = formatMoney(cartItemsTotal)
   const formattedDeliveryTotal = formatMoney(DELIVERY_PRICE)
   const formattedCartTotal = formatMoney(cartTotal)
-
   return (
     <PriceAndDeliveryContainer>
       <div className="priceSummary">
@@ -30,9 +28,13 @@ export function PriceAndDelivery() {
           <strong>{formattedCartTotal}</strong>
         </div>
       </div>
-      <NavLink to="/finalization">
-        <button disabled={cartQuantity >= 0}>CONFIRMAR PEDIDO</button>
-      </NavLink>
+      <button
+        type="submit"
+        disabled={cartQuantity <= 0}
+        className="orderButton"
+      >
+        CONFIRMAR PEDIDO
+      </button>
     </PriceAndDeliveryContainer>
   )
 }

@@ -5,14 +5,15 @@ export const CheckoutContainer = styled.main`
     all: unset;
     cursor: pointer;
   }
+  .formProvider {
+    display: grid;
+    grid-template-columns: 640px 1fr;
 
-  display: grid;
-  grid-template-columns: 640px 1fr;
+    gap: 2rem;
+    align-items: flex-start;
 
-  gap: 2rem;
-  align-items: flex-start;
-
-  color: ${(props) => props.theme['gray-800']};
+    color: ${(props) => props.theme['gray-800']};
+  }
 `
 
 export const AndressAndPayment = styled.main`
