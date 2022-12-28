@@ -30,7 +30,7 @@ const confirmOrderFormValidationSchema = z.object({
   uf: z.string().min(1, 'Informe a UF'),
   paymentMethod: z.nativeEnum(PaymentMethods, {
     errorMap: () => {
-      return { message: 'Informe o método de pagamento' }
+      return { message: 'Informe o método  de pagamento' }
     },
   }),
 })
@@ -45,6 +45,9 @@ export function Checkout() {
 
   const confirmOrderForm = useForm<ConfirmOrderFormData>({
     resolver: zodResolver(confirmOrderFormValidationSchema),
+    defaultValues: {
+      paymentMethod: undefined,
+    },
   })
 
   const { handleSubmit } = confirmOrderForm

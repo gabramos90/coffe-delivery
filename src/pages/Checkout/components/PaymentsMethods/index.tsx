@@ -1,10 +1,10 @@
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren, ReactNode } from 'react'
 import { PaymentMethodContainer } from './styles'
 
 interface PaymentProps {
   label: string
   id: string
-  icon: SVGAElement
+  icon: ReactNode
   value: string
 }
 
@@ -24,7 +24,7 @@ export function PaymentsMethods({
               className="radio-custom input-group-field"
               type="radio"
               value={value}
-              name="paimentMethod"
+              name="paymentMethod"
             />
             <label htmlFor={id} className="radio-custom-label">
               {icon}

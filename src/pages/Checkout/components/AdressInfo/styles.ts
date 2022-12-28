@@ -42,9 +42,13 @@ export const AdressInfoContainer = styled.article`
     input {
       height: 2.625rem;
 
-      border: 0;
+      border: 1px solid transparent;
       border-radius: 6px;
       padding: 0.75rem;
+
+      &:focus {
+        border: 1px solid ${(props) => props.theme['yellow-600']};
+      }
     }
 
     .cep {

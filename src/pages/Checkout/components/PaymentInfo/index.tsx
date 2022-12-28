@@ -49,7 +49,7 @@ export function PaymentInfo() {
         ))}
       </main>
 
-      {paymentMethodError && <span>fodase</span>}
+      {paymentMethodError && <span>Escolha o método de pagamento</span>}
     </PaymentInfoContainer>
   )
 }
