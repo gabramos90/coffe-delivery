@@ -12,7 +12,6 @@ import { Card } from './components/Card'
 import { coffes } from '../../data/coffes'
 
 export function Home() {
-  console.log('gabruel')
 
   return (
     <HomeContainer>

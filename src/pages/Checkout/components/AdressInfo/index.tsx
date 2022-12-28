@@ -2,8 +2,18 @@ import { MapPinLine } from 'phosphor-react'
 import { useFormContext } from 'react-hook-form'
 import { AdressInfoContainer } from './styles'
 
+interface ErrorsType {
+  errors: {
+    [key: string]: {
+      message: string
+    }
+  }
+}
+
 export function AdressInfo() {
-  const { register } = useFormContext()
+  const { register, formState } = useFormContext()
+
+  const { errors } = formState as unknown as ErrorsType
 
   return (
     <AdressInfoContainer>
@@ -19,46 +29,58 @@ export function AdressInfo() {
           <input
             type="text"
             placeholder="CEP"
-            className="cep"
             {...register('cep')}
+            className="cep"
           />
+          <span> {errors.cep?.message}</span>
 
           <input
             type="text"
             placeholder="Rua"
-            className="rua"
             {...register('street')}
+            className="rua"
           />
+          <span> {errors.street?.message}</span>
+
           <input
             type="text"
             placeholder="Número"
-            className="numero"
             {...register('number')}
+            className="numero"
           />
+          <span> {errors.number?.message}</span>
+
           <input
             type="text"
             placeholder="Complemento"
-            className="complemento"
             {...register('complement')}
+            className="complemento"
           />
+          <span> {errors.complement?.message}</span>
+
           <input
             type="text"
             placeholder="Bairro"
-            className="bairro"
             {...register('district')}
+            className="bairro"
           />
+          <span> {errors.district?.message}</span>
+
           <input
             type="text"
             placeholder="Cidade"
-            className="cidade"
             {...register('city')}
+            className="cidade"
           />
+          <span> {errors.city?.message}</span>
+
           <input
             type="text"
             placeholder="UF"
-            className="uf"
             {...register('uf')}
+            className="uf"
           />
+          <span> {errors.uf?.message}</span>
         </form>
       </div>
     </AdressInfoContainer>

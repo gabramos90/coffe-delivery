@@ -26,7 +26,19 @@ export const AdressInfoContainer = styled.article`
     }
   }
 
-  div {
+  form {
+    div {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    span {
+      position: absolute;
+      font-size: 0.875rem;
+      color: red;
+    }
+
     input {
       height: 2.625rem;
 
@@ -42,7 +54,7 @@ export const AdressInfoContainer = styled.article`
     }
 
     .rua {
-      display: block;
+      display: inline;
       width: 100%;
       margin-bottom: 1rem;
     }
@@ -54,7 +66,7 @@ export const AdressInfoContainer = styled.article`
     }
 
     .complemento {
-      width: 348px;
+      width: 300px;
     }
 
     .bairro {

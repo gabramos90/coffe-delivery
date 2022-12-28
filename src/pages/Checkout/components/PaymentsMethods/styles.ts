@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-export const PaymentInfoContainer = styled.article`
+export const PaymentMethodContainer = styled.article`
   display: flex;
   flex-direction: column;
-  padding: 2.5rem;
   background-color: ${(props) => props.theme['gray-200']};
 
   border-radius: 6px;
+  flex: 1;
 
   header {
     display: flex;
@@ -17,12 +17,6 @@ export const PaymentInfoContainer = styled.article`
     svg {
       color: ${(props) => props.theme['purple-300']};
     }
-  }
-
-  main {
-    display: flex;
-    flex: 1;
-    gap: 0.8rem;
   }
 
   .radio-custom {
@@ -40,7 +34,7 @@ export const PaymentInfoContainer = styled.article`
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    flex: 1;
+    flex
 
     padding: 1rem 0.5rem;
     border-radius: 8px;

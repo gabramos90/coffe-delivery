@@ -1,9 +1,31 @@
 import { Bank, CreditCard, CurrencyDollarSimple, Money } from 'phosphor-react'
 import { useFormContext } from 'react-hook-form'
+
+import { PaymentsMethods } from '../PaymentsMethods'
 import { PaymentInfoContainer } from './styles'
 
+export const paymentMethods = {
+  credit: {
+    label: 'Cartão de credito',
+    icon: <CreditCard size={22} />,
+  },
+  debit: {
+    label: 'Cartão de débito',
+    icon: <Bank size={22} />,
+  },
+  money: {
+    label: 'Dinheiro',
+    icon: <Money size={22} />,
+  },
+}
+
 export function PaymentInfo() {
-  const { register } = useFormContext()
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext()
+
+  const paymentMethodError = errors?.paymentMethod?.message as unknown as string
 
   return (
     <PaymentInfoContainer>
@@ -14,53 +36,20 @@ export function PaymentInfo() {
           <p>Informe o endereço onde deseja receber seu pedido</p>
         </div>
       </header>
-      <div className="input-group">
-        <div className="text-group-field">
-          <div className="inner-block">
-            <input
-              id="pickup-1"
-              className="radio-custom input-group-field"
-              type="radio"
-              value="cartão de crédito"
-              {...register('paymentMethod')}
-            />
-            <label htmlFor="pickup-1" className="radio-custom-label">
-              <CreditCard />
-              CARTÃO DE CRÉDITO
-            </label>
-          </div>
-        </div>
-        <div className="text-group-field pickup-day choose-time">
-          <div className="inner-block">
-            <input
-              id="pickup-2"
-              className="radio-custom input-group-field"
-              type="radio"
-              value="cartão de débito"
-              {...register('paymentMethod')}
-            />
-            <label htmlFor="pickup-2" className="radio-custom-label">
-              <Bank />
-              CARTÃO DE DÉBITO
-            </label>
-          </div>
-        </div>
-        <div className="text-group-field pickup-day choose-time">
-          <div className="inner-block">
-            <input
-              id="pickup-3"
-              className="radio-custom input-group-field"
-              type="radio"
-              {...register('paymentMethod')}
-              value="dinheiro"
-            />
-            <label htmlFor="pickup-3" className="radio-custom-label">
-              <Money />
-              DINHEIRO
-            </label>
-          </div>
-        </div>
-      </div>
+      <main>
+        {Object.entries(paymentMethods).map(([key, { label, icon }]) => (
+          <PaymentsMethods
+            key={label}
+            id={key}
+            icon={icon}
+            label={label}
+            value={key}
+            {...register('paymentMethod')}
+          />
+        ))}
+      </main>
+
+      {paymentMethodError && <span>fodase</span>}
     </PaymentInfoContainer>
   )
 }
